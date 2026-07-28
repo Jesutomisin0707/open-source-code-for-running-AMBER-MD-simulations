@@ -1,0 +1,6 @@
+reference Full_Mini_dry.rst
+trajin strip.bps
+trajout almin.bps binpos nobox
+rms reference out rms-min.dat @CA
+average av.pdb * pdb nobox
+

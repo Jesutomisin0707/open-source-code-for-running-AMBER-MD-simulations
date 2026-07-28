@@ -1,0 +1,23 @@
+#!/bin/bash
+#PBS -P HEAL0790
+#PBS -N  mmpbsa_Hinok
+#PBS -l select=1:ncpus=24:mpiprocs=24
+#PBS -l place=excl
+#PBS -l walltime=96:00:00
+#PBS -q smp
+#PBS -m be
+#PBS -M jesutomisin0707@gmail.com
+#PBS -o /home/iajadi/lustre/Current_Proj_3/MDM2-MDMX_RING/Recep-Hinok/mmpbsa_output
+#PBS -e /home/iajadi/lustre/Current_Proj_3/MDM2-MDMX_RING/Recep-Hinok/mmpbsa_error
+#PBS
+
+module add gcc/5.1.0
+module add chpc/openmpi/1.8.8/gcc-5.1.0
+module add chpc/amber/14/openmpi-1.8.8/gcc-5.1.0
+source /apps/chpc/chem/amber/14/amber.sh
+
+pushd /home/iajadi/lustre/Current_Proj_3/MDM2-MDMX_RING/Recep-Hinok
+
+exe=MMPBSA.py
+mpirun -np 24 -machinefile $PBS_NODEFILE $exe -O -i mmpbsa.in -o mmpbsa.dat -sp stripped.com_solvated.top -cp com4.top -rp rec4.top -lp LIG4.top -y com_Dry.mdcrd > mmpbsa.log2
+popd

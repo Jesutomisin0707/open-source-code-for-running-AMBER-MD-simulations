@@ -1,0 +1,4 @@
+trajin alav.bps
+matrix covar name covmat out covmat-ca.dat @CA
+analyze matrix covmat out evecs-ca.dat vecs 2
+

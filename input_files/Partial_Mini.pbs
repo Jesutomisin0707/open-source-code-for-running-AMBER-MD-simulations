@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -P HEAL0790
+#PBS -N Partial_Hinok
+#PBS -l select=1:ncpus=2:ngpus=1
+#PBS -l walltime=12:00:00
+#PBS -q gpu_1
+#PBS -m abe
+#PBS -M jesutomisin0707@gmail.com
+#PBS -o /mnt/lustre/users/iajadi/Current_Proj_3/MDM2-MDMX_RING/Recep-Hinok/Partial_Mini_output
+#PBS -e /mnt/lustre/users/iajadi/Current_Proj_3/MDM2-MDMX_RING/Recep-Hinok/Partial_Mini_error
+#PBS
+
+module purge
+module add chpc/amber/18/cuda10.1/openmpi-3.1.0/gcc-6.1.0
+source $AMBERHOME/amber.sh
+
+pushd /mnt/lustre/users/iajadi/Current_Proj_3/MDM2-MDMX_RING/Recep-Hinok
+exe=$AMBERHOME/bin/pmemd.cuda
+$exe -O -i Partial_Mini.in -o Partial_Mini.out -p com_solvated.top -c com_solvated.crd -ref com_solvated.crd -r Partial_Mini.rst
+popd

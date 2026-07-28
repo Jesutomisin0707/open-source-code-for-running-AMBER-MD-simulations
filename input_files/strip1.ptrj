@@ -1,0 +1,6 @@
+trajin Full_Mini.rst
+
+strip :WAT,Cl-
+
+trajout Full_Mini_dry.rst
+

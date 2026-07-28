@@ -1,0 +1,4 @@
+trajin com_Dry.mdcrd
+
+rms first out rmsd.dat @CA
+

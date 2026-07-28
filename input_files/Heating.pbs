@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -P HEAL0790
+#PBS -N Heating
+#PBS -l select=1:ncpus=2:ngpus=1
+#PBS -l walltime=12:00:00
+#PBS -q gpu_1
+#PBS -m abe
+#PBS -M jesutomisin0707@gmail.com
+#PBS -o /mnt/lustre/users/iajadi/Current_Proj_3/MDM2-MDMX_RING/Recep-Hinok/Heating_output
+#PBS -e /mnt/lustre/users/iajadi/Current_Proj_3/MDM2-MDMX_RING/Recep-Hinok/Heating_error
+#PBS
+
+module purge
+module add chpc/amber/18/cuda10.1/openmpi-3.1.0/gcc-6.1.0
+source $AMBERHOME/amber.sh
+
+pushd /mnt/lustre/users/iajadi/Current_Proj_3/MDM2-MDMX_RING/Recep-Hinok
+exe=$AMBERHOME/bin/pmemd.cuda
+$exe -O -i Heating.in -o Heating.out -p com_solvated.top -c Full_Mini.rst -r Heating.rst -ref Full_Mini.rst -x Heating.mdcrd
+popd

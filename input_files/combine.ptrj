@@ -1,0 +1,8 @@
+trajin md.mdcrd
+trajin md1.mdcrd
+trajin md2.mdcrd
+trajin md3.mdcrd
+autoimage
+strip :WAT,Na+,Cl- outprefix stripped
+trajout com_Dry.mdcrd
+

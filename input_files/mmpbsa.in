@@ -1,0 +1,15 @@
+Input file for running PB and GB in serial
+&general
+ startframe=1000,  endframe=40000, interval=50, keep_files=0,
+/
+&gb
+igb=5,saltcon=0.15,
+/
+#&pb
+#istrng=0.100,
+#/
+&decomp
+idecomp=1, 
+print_res="126;10;13;16;30;33;56,"
+dec_verbose=1,csv_format=0,
+/

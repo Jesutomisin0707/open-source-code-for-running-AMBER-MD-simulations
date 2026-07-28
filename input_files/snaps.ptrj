@@ -1,0 +1,11 @@
+trajin com_Dry.mdcrd
+outtraj snapshot1.pdb onlyframes 1000
+outtraj snapshot25.pdb onlyframes 25000
+outtraj snapshot50.pdb onlyframes 50000
+outtraj snapshot75.pdb onlyframes 75000
+outtraj snapshot100.pdb onlyframes 100000
+outtraj snapshot125.pdb onlyframes 125000 
+outtraj snapshot150.pdb onlyframes 150000
+outtraj snapshot175.pdb onlyframes 175000
+outtraj snapshot200.pdb onlyframes 200000
+

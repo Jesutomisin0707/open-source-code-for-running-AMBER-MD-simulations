@@ -1,0 +1,21 @@
+#!/bin/bash
+#PBS -P HEAL0790
+#PBS -N equil
+#PBS -l select=2:ncpus=24:mpiprocs=24
+#PBS -l walltime=48:00:00
+#PBS -q normal
+#PBS -m be
+#PBS -M jesutomisin0707@gmail.com
+#PBS -r n
+#PBS -o /mnt/lustre/users/iajadi/Current_Proj_3/MDM2-MDMX_RING/Recep-Hinok/equil_output
+#PBS -e /mnt/lustre/users/iajadi/Current_Proj_3/MDM2-MDMX_RING/Recep-Hinok/equil_error
+#PBS
+
+module purge
+module add chpc/amber/18/openmpi-1.8.8/gcc-4.9.0
+source $AMBERHOME/amber.sh
+
+pushd /mnt/lustre/users/iajadi/Current_Proj_3/MDM2-MDMX_RING/Recep-Hinok
+exe=$AMBERHOME/bin/pmemd.MPI
+mpirun -np 48 $exe -O -i equil.in -o equil.out -p com_solvated.top -c Heating.rst -r equil.rst -x equil.mdcrd
+popd

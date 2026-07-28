@@ -1,0 +1,4 @@
+trajin com_Dry.mdcrd
+strip :WAT,Cl-
+trajout strip.bps binpos nobox
+

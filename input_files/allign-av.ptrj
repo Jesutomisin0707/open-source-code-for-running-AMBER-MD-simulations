@@ -1,0 +1,5 @@
+reference av.pdb
+trajin almin.bps
+trajout alav.bps binpos nobox
+rms reference out rms-av.dat @CA
+

@@ -1,0 +1,10 @@
+trajin com_Dry.mdcrd
+reference Full_Mini_dry.rst
+rms reference out rms_min.dat @CA
+average av.pdb * pdb nobox
+run
+reference av.pdb
+rms reference out rms_min.dat @CA
+atomicfluct out bfactor.dat :1-121@CA byres bfactor
+atomicfluct out rmsf.dat :1-121@CA byres
+

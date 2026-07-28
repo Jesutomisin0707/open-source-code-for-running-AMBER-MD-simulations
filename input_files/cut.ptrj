@@ -1,0 +1,3 @@
+trajin alav.bps 1 200000 100
+trajout alav-sm.bps binpos nobox
+

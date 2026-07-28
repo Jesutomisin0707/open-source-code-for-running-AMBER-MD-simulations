@@ -1,0 +1,3 @@
+trajin com_Dry.mdcrd
+matrix correl name correlation @CA out correl-matrix.dat
+
